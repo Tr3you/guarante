@@ -1,0 +1,13 @@
+.toolbar{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    &__logo{
+        width: 10rem;
+    }
+}

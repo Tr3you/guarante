@@ -1,0 +1,65 @@
+<div class="main-content">
+    <search-bar [textoBusqueda]="textoBusqueda"></search-bar>
+
+    <div class="titles">
+        <h2>Results found for:</h2>
+        <p>"Laptop 16 GB RAM"</p>
+    </div>
+    <mat-spinner *ngIf="isLoading" style="margin-top: 2rem;"></mat-spinner>
+    <div>
+        <mat-card class="resultCard" *ngFor="let result of resultsArray; let i=index">
+            <div class="resultCard-image">
+                <img src="{{result.urlImage}}" alt="product {{i+1}} image">
+            </div>
+            <div class="resultCard-information">
+                <p class="resultCard-information__name">{{result.name}}...</p>
+                <p class="resultCard-information__price">$ {{result.price}} COP</p>
+                <div class="resultCard-information__rowInfo">
+                    <p>Calification: {{result.calification}} <mat-icon style="color: #28EEEE;">star</mat-icon> </p>
+                    <p>{{result.store}}</p>
+                    <a href="{{result.link}}" target="_blank" style="text-decoration:  underline;">View in the store</a>
+                </div>
+                <button mat-flat-button color="primary" (click)="openDialog()" style="color: #28EEEE;">Lease</button>
+            </div>
+        </mat-card>
+    </div>
+    <div class="pagination" *ngIf="!isLoading">
+        <p>Page 1</p>
+        <div class="pagination-controls">
+            <div class="control">
+                <mat-icon style="color: #E5E5E5;">arrow_back</mat-icon>
+                <p style="color: #E5E5E5; padding: 1rem;">Previous</p>
+            </div>
+            <div class="control">
+                <p style="color: #5534A5; padding: 1rem;">Next</p>
+                <mat-icon style="color: #5534A5;">arrow_forward</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #userNoLoggedDialog class="userNoLoggedDialog">
+    <style>
+        .mat-dialog-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+            height: 80px;
+        }
+        .mat-dialog-content a {
+                color: #5534A5;
+                font-weight: 700;
+                font-size: 1.5rem;
+                cursor: pointer;
+        }
+    </style>
+    <h3 mat-dialog-title align="center">Log in or create an account to request a lease</h3>
+    <div mat-dialog-content align="center" class="mat-dialog-content">
+        <a>Login</a>
+        <a (click)="goToCreateAccount()">Create Account</a>
+    </div>
+    <div mat-dialog-actions align="center">
+        <button mat-flat-button color="primary" mat-dialog-close>Cancel</button>
+    </div>
+</ng-template>

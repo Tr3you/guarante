@@ -1,0 +1,131 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-guarantepurple: (
+    50 : #ebe7f4,
+    100 : #ccc2e4,
+    200 : #aa9ad2,
+    300 : #8871c0,
+    400 : #6f52b3,
+    500 : #5534a5,
+    600 : #4e2f9d,
+    700 : #442793,
+    800 : #3b218a,
+    900 : #2a1579,
+    A100 : #beafff,
+    A200 : #957cff,
+    A400 : #6b49ff,
+    A700 : #5630ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-guaranteblue: (
+    50 : #e5fdfd,
+    100 : #bffafa,
+    200 : #94f7f7,
+    300 : #69f3f3,
+    400 : #48f1f1,
+    500 : #28eeee,
+    600 : #24ecec,
+    700 : #1ee9e9,
+    800 : #18e7e7,
+    900 : #0fe2e2,
+    A100 : #ffffff,
+    A200 : #dbffff,
+    A400 : #a8ffff,
+    A700 : #8fffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+$guarante-demo-primary: mat.define-palette($md-guarantepurple);
+$guarante-demo-accent: mat.define-palette($md-guaranteblue);
+
+// The warn palette is optional (defaults to red).
+$guarante-demo-warn: mat.define-palette(mat.$red-palette);
+
+//font
+$guarante-demo-typography: mat.define-typography-config(
+    $font-family: 'Poppins',
+  );
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$guarante-demo-theme: mat.define-light-theme((
+  color: (
+    primary: $guarante-demo-primary,
+    accent: $guarante-demo-accent,
+    warn: $guarante-demo-warn,
+  ),
+  typography: $guarante-demo-typography,
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($guarante-demo-theme);
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    line-height: 1.3;
+    font-family: 'Poppins', sans-serif;
+}
+
+a, a:visited, a:hover {
+    text-decoration: none;
+    color: #000000;
+}
+
+.main-content{
+    padding: 2rem 4rem;
+}

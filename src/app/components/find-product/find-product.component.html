@@ -1,0 +1,20 @@
+<div class="main-content">
+    <div class="titles">
+        <h1>Search for a product</h1>
+        <p>Search for the product you would like to lease by name or by the link to the store that sells it.</p>
+    </div>
+    <!--Componenente barra de navegacion-->
+    <search-bar></search-bar>
+    <div class="select-languages">
+        <p>Select your country of residence</p>
+        <mat-form-field appearance="outline">
+            <mat-label>Select a country</mat-label>
+            <mat-select [(value)]="residenceCountry">
+              <mat-option value="CO">CO - Colombia</mat-option>
+              <mat-option value="CL">CL - Chile</mat-option>
+              <mat-option value="AR">AR - Argentina</mat-option>
+              <mat-option value="PE">PE - Peru</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>

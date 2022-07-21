@@ -1,0 +1,30 @@
+$primary: #5534A5;
+$dark-gray: #858585;
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .titles {
+        text-align: center;
+        margin: 2rem 0;
+
+        h1 {
+            color: $primary;
+        }
+    }
+
+    .select-languages {
+        display: flex;
+        align-items: center;
+        margin-top: 4rem;
+
+        p {
+            margin: 0 0;
+            margin-right: 2rem;
+            color: $dark-gray;
+        }
+    }
+}
