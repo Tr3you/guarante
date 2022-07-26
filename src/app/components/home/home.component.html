@@ -1,0 +1,68 @@
+<div class="main-content">
+    <div class="headerTitles">
+        <p>Welcome Back!</p>
+        <h2> Erick Jose Ruiz Acosta</h2>
+    </div>
+    
+    <div class="body">
+        <h3> Get one of our services</h3>
+        <section class="serviceCardSection">
+            <mat-card>
+                <mat-card-header id="serviceCard-image1"></mat-card-header>
+                <mat-card-content>
+                    <h4>Lease a product</h4>
+                    <p>Lease a completely new technology product</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-flat-button color="primary">Lease</button>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header id="serviceCard-image2"></mat-card-header>
+                <mat-card-content>
+                    <h4>Purchase used product</h4>
+                    <p>Buy a used product from our store with a 1 year warranty.</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-flat-button color="primary">Buy</button>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header id="serviceCard-image3"></mat-card-header>
+                <mat-card-content>
+                    <h4>Acquire Guarante Diamond+</h4>
+                    <p>Get multiple benefits for a modest extra fee</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-flat-button color="primary">Get</button>
+                </mat-card-actions>
+            </mat-card>
+        </section>
+    </div>
+</div>
+
+<ng-template #continueRequestDialog class="continueRequestDialog">
+    <h3 mat-dialog-title align="center">Do you wish to continue with your lease application?</h3>
+    <div mat-dialog-content align="center" class="mat-dialog-content">
+        <mat-card class="resultCard">
+            <div class="resultCard-image">
+                <img src="https://m.media-amazon.com/images/I/71AwAdVLOLS._AC_UY218_.jpg" alt="product 2 image">
+            </div>
+            <div class="resultCard-information">
+                <p class="resultCard-information__name">2021 Newest HP Premium 14-inch HD Laptop, Intel Dual-Core Processor Up to 2.8GHz, 16GB RAM, 64GB eMM...</p>
+                <p class="resultCard-information__price">$ 1.654.877 COP</p>
+                <div class="resultCard-information__rowInfo">
+                    <p>Calification: 4.2 <mat-icon style="color: #28EEEE;">star</mat-icon> </p>
+                    <p>Amazon.com</p>
+                    <a href="https://www.amazon.com/HP-Premium-Dual-Core-Processor-Bluetooth/dp/B096D36ZSX/ref=sr_1_6?crid=11BC8JZ3FQD96&keywords=Laptop+16+gb+ram&qid=1658011788&sprefix=laptop+16+gb+r%2Caps%2C978&sr=8-6" target="_blank" style="text-decoration:  underline;">View in the store</a>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div mat-dialog-actions align="center">
+        <button mat-flat-button color="primary" (click)="goToRequest()">Continue now</button>
+        <button mat-button color="primary" mat-dialog-close>Maybe some other time</button>
+    </div>
+</ng-template>

@@ -1,7 +1,18 @@
-<div class="search-bar">
+<div class="search-bar" *ngIf="!isLogged">
     <div class="search-bar__button">
         <button mat-icon-button color="primary" (click)="goToResults()">
             <mat-icon color="accent">search</mat-icon>
+        </button>
+    </div>
+    <div class="search-bar__input">
+        <input type="text" class="search_input" value="{{textoBusqueda}}" placeholder="Type the product name or a URL">
+    </div>
+</div>
+
+<div class="search-bar" *ngIf="isLogged">
+    <div class="search-bar__button-blue">
+        <button *ngIf="isLogged" mat-icon-button color="accent" (click)="goToResults()">
+            <mat-icon color="primary">search</mat-icon>
         </button>
     </div>
     <div class="search-bar__input">

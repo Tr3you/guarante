@@ -15,7 +15,7 @@ export class ShowProductsComponent implements OnInit {
     isLoading = false;
     textoBusqueda = "Laptop 16 Gb Ram"  
 
-    constructor(public dialog: MatDialog, private router: Router){
+    constructor(private dialog: MatDialog, private router: Router){
         this.resultsArray = []
     }
 
@@ -24,7 +24,7 @@ export class ShowProductsComponent implements OnInit {
         setTimeout(()=>{
             this.resultsArray = this.loadResults()
             this.isLoading = false;
-        }, 1000)
+        }, 3000)
     }
 
     goToCreateAccount(){

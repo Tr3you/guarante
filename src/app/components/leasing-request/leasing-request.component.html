@@ -1,0 +1,158 @@
+<div class="main-content" style="text-align: center;">
+    <h1 style="text-align: left;">
+        Lease request
+    </h1>
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;" >
+        <mat-card class="resultCard">
+            <div class="resultCard-image">
+                <img src="https://m.media-amazon.com/images/I/71AwAdVLOLS._AC_UY218_.jpg" alt="product 2 image">
+            </div>
+            <div class="resultCard-information">
+                <p class="resultCard-information__name">2021 Newest HP Premium 14-inch HD Laptop, Intel Dual-Core Processor Up to 2.8GHz, 16GB RAM, 64GB eMM...</p>
+                <p class="resultCard-information__price">$ 1.654.877 COP</p>
+                <div class="resultCard-information__rowInfo">
+                    <p>Calification: 4.2 <mat-icon style="color: #28EEEE;">star</mat-icon> </p>
+                    <p>Amazon.com</p>
+                    <a href="https://www.amazon.com/HP-Premium-Dual-Core-Processor-Bluetooth/dp/B096D36ZSX/ref=sr_1_6?crid=11BC8JZ3FQD96&keywords=Laptop+16+gb+ram&qid=1658011788&sprefix=laptop+16+gb+r%2Caps%2C978&sr=8-6" target="_blank" style="text-decoration:  underline;">View in the store</a>
+                </div>
+            </div>
+        </mat-card>
+        <form [formGroup]="leasingTerms" style="width: 70%">
+          <h3>Choose the duration of the lease and the delivery address of the product.</h3>
+            <table style="width: 100%" cellspacing="15">
+                <tr>
+                  <td style="width: 50%">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>For how long would you like to lease?</mat-label>
+                      <mat-select formControlName="leasingLenght">
+                        <mat-option value="1">1 Year</mat-option>
+                        <mat-option value="2">2 Years</mat-option>
+                        <mat-option value="3">3 Years</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </td>
+                  <td style="width: 50%">
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Delivery address</mat-label>
+                      <input matInput type="text" formControlName="leasingAddress" placeholder="Diagonal 40 # 41-61">
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
+        </form>
+    </div>
+    <h3>Choose a leasing plan</h3>
+    <div class="plans">
+      <mat-card class="plansCard basic" id="basic" (click) ="selectPlan()">
+        <mat-card-header>
+          <img src="../../../assets/logotipo_sobre_claro.png" alt="logo Guarante">
+          <h2>Basic</h2>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="plansCard-item">
+            <mat-icon>done</mat-icon>
+            <p>You do not pay for accidental damage or theft of the leased product.</p>
+          </div>
+          <div class="plansCard-item">
+            <mat-icon>done</mat-icon>
+            <p>Free unlimited repairs</p>
+          </div>
+          <div class="plansCard-item">
+            <mat-icon>done</mat-icon>
+            <p>Extended factory warranty for the duration of your lease. </p>
+          </div>
+          <div class="plansCard-item">
+            <mat-icon>done</mat-icon>
+            <p>Totally free shipping</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="plansCard diamond" id="diamond" (click) ="selectPlan()">
+        <mat-card-header>
+          <img src="../../../assets/logotipo_sobre_oscuro.png" alt="logo Guarante">
+          <h2>Diamond+</h2>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="plansCard-item">
+            <mat-icon>done</mat-icon>
+            <p>Everything in the Basic plan</p>
+          </div>
+          <div class="plansCard-item">
+            <mat-icon>done</mat-icon>
+            <p>We change the product if a new version is released, while you have an active lease, without increasing your monthly payment.</p>
+          </div>
+          <div class="plansCard-item">
+            <mat-icon>done</mat-icon>
+            <p>100% discount on the purchase option, after 3 years of leasing and 50% discount after 2 years</p>
+          </div>
+          <div class="plansCard-item">
+            <mat-icon>done</mat-icon>
+            <p>We send you free accessories and peripherals every Christmas.</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div style="display: flex; justify-content: center; margin: 3rem 0;">
+      <button mat-flat-button color="primary" (click)="openDialog()" [disabled]="selectedPlan == '' || this.leasingTerms.get('leasingAddress')?.value == '' ">Quote leasing</button>
+      <button mat-button color="primary">Maybe some other time</button>
+    </div>
+</div>
+
+<ng-template #doRequestDialog class="doRequestDialog">
+  <h3 mat-dialog-title align="center">Monthly payment breakdown</h3>
+  <div mat-dialog-content align="center" class="mat-dialog-content">
+      <table [cellSpacing]="20">
+        <tr>
+          <td>Lease fee</td><td>{{formatterPeso.format(costs.canon)}} COP</td>
+        </tr>
+        <tr>
+          <td>{{selectedPlan}} Plan</td><td>{{formatterPeso.format(costs.plan)}} COP</td>
+        </tr>
+        <tr>
+          <td>IVA(19%)</td><td>{{formatterPeso.format(costs.IVA)}} COP</td>
+        </tr>
+        <tr>
+          <mat-divider style="width: 100%;"></mat-divider>
+        </tr>
+        <tr>
+          <td>Total</td><td>{{formatterPeso.format(costs.total)}} COP</td>
+        </tr>
+      </table>
+      <small>At the end of your leasing period the purchase option will be for {{formatterPeso.format(costs.option)}} COP </small>
+  </div>
+  <div mat-dialog-actions align="center">
+      <button mat-flat-button color="primary" (click)="requestLease()" [mat-dialog-close]="true">Lease now</button>
+      <button mat-button color="primary" mat-dialog-close>Cancel</button>
+  </div>
+</ng-template>
+
+<ng-template #signContractDialog class="signContractDialog">
+  <h2 mat-dialog-title>Guarante Lease Contract</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>1. Terms and Conditions</h3>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p>
+    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+  </p>
+  <p>
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+  </p>
+  <p>
+    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+  </p>
+</mat-dialog-content>
+<div style="text-align: center;">
+  <h3>
+    We send a code to your email, write it or paste it here to sign the contract: 
+  </h3>
+  <mat-form-field appearance="outline">
+    <mat-label>Sign Code</mat-label>
+    <input matInput placeholder="1234-QWER-7A8S">
+  </mat-form-field>
+</div>
+<mat-dialog-actions align="center">
+  <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Sign</button>
+  <button mat-button color="primary" mat-dialog-close>Sign at another time</button>
+</mat-dialog-actions>
+</ng-template>

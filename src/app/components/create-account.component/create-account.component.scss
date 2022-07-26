@@ -1,0 +1,87 @@
+.width-100 {
+    width: 100%;
+}
+
+.width-75 {
+  width: 75%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-33 {
+    width: 33.33%;
+}
+
+.width-25 {
+    width: 25%;
+}
+
+.upload-left-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  img {
+    width: 100px;
+  }
+}
+
+/**/
+
+#file-upload-button{
+  height: 200px;
+}
+.inputfile {
+  width: 100px;
+  height: 45px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+}
+
+.inputfile + label {
+  max-width: 250px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  border-radius: 2rem;
+}
+
+.iborrainputfile {
+font-size:16px; 
+font-weight:normal;
+font-family: 'Poppins', sans-serif;
+}
+
+.inputfile-1 + label {
+  color: #fff;
+  background-color: #5534A5;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1:hover + label:hover {
+  background-color: #28EEEE;
+}
+
+.isLoading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: #000000, $alpha: 0.6);
+  overflow: hidden;
+  z-index: 100;
+}

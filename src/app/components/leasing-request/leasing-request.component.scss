@@ -1,0 +1,92 @@
+$primary: #5534A5;
+$accent: #28EEEE;
+
+.main-content{
+    h1 {
+        color: $primary
+    }
+}
+
+
+.resultCard{
+    display: flex;
+    justify-content: space-between;
+    width: 50rem;
+    margin: 1rem 0;
+
+    &-image{
+        display: flex;
+        align-items: center;
+        img {
+            width: 12rem;
+            height: 10rem;
+        }
+    }
+
+    &-information{
+        width: 33rem;
+        
+        &__rowInfo{
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        &__name {
+            font-weight: 400;
+        }
+
+        &__price {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+    }
+}
+
+.plans {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    text-align: left;
+    .mat-card {
+        width: 40%;
+        height: 400px;
+        cursor: pointer;
+        .mat-card-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                width: 200px;
+                height: 44px;
+            }
+            h2 {
+                margin: 0;
+            }
+        }
+        .mat-card-content {
+            margin: 2rem 0;
+            .plansCard-item {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    }
+}
+
+.diamond {
+    background-color: $primary;
+    color: white;
+
+    h2 {
+        color: $accent;
+    }
+}
+
+.selectedPlan {
+
+    outline: 5px dashed $accent;
+}

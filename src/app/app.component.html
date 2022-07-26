@@ -1,11 +1,32 @@
-<mat-toolbar class="toolbar" color="primary">
+<mat-toolbar *ngIf="!isLogged" class="toolbar" color="primary">
   <img class ="toolbar__logo" src="../assets/logotipo_sobre_oscuro.png" alt="Logo de guarante">
   <div class="toolbar__links">
+    <!--Menu when user isn't logged-->
     <button routerLink="find-products" mat-button>Find a product</button>
     <button mat-button>Login</button>
     <button mat-button>Create account</button>
   </div>
   <button class="toolbar__language" mat-button>English <mat-icon>language</mat-icon></button>
+</mat-toolbar>
+
+<mat-toolbar *ngIf="isLogged" color="primary">
+  <mat-toolbar-row class="toolbar">
+    <img class ="toolbar__logo" src="../assets/logotipo_sobre_oscuro.png" alt="Logo de guarante">
+    <search-bar></search-bar>
+    <button class="toolbar__language" mat-button>English <mat-icon>language</mat-icon></button>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <div>
+    <!--Menu when user is logged-->
+    <button mat-button>Home</button>
+    <button mat-button>Active leases</button>
+    <button mat-button>Buy a used product</button>
+    <button mat-button>Guarante Diamond+</button>
+    <button mat-button>Notifications</button>
+    <button mat-button>My account</button>
+    <button mat-button>Configuration</button>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

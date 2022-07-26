@@ -1,44 +1,265 @@
 <div class="main-content">
-    <mat-stepper linear #stepper>
-
+    <mat-stepper #stepper>
+        <!-- .......................................................... -->
         <mat-step [stepControl]="identityForm">
           <form [formGroup]="identityForm">
             <ng-template matStepLabel>Identity</ng-template>
-            <mat-form-field appearance="outline">
-                <mat-label>Type of ID document</mat-label>
-                <mat-select [(value)]="idDocumentType">
-                  <mat-option value="Citizenship card">Citizenship card</mat-option>
-                  <mat-option value="Passport">Passport</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>ID document Number</mat-label>
-                <input matInput type="text" formControlName="idDocumentNumber" placeholder="Ex. Pizza">
-            </mat-form-field>
+            <table class="width-100" cellspacing="15">
+              <tr>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Type of ID document</mat-label>
+                    <mat-select formControlName="idDocumentType">
+                      <mat-option value="Citizenship card">Citizenship card</mat-option>
+                      <mat-option value="Passport">Passport</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>ID document Number</mat-label>
+                    <input matInput type="text" formControlName="idDocumentNumber" placeholder="1234567890">
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Document issue date</mat-label>
+                    <input matInput type="date" formControlName="idDocumentDate">
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <table class="width-100" cellspacing="15">
+              <tr>
+                <td class="width-50">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Document issue country</mat-label>
+                    <mat-select formControlName="idDocumentCountry">
+                      <mat-option value="CO">Colombia</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+                <td class="width-50">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Document issue city</mat-label>
+                    <input matInput type="text" formControlName="idDocumentCity" placeholder="Bogotá">
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <table class="width-100" cellspacing="15">
+              <tr>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Country of birth</mat-label>
+                    <mat-select formControlName="countryBirth">
+                      <mat-option value="CO">Colombia</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>City of birth</mat-label>
+                    <input matInput type="text" formControlName="cityBirth" placeholder="Bogotá">
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Date of birth</mat-label>
+                    <input matInput type="date" formControlName="dateBirth">
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <table class="width-100" cellspacing="15">
+              <tr>
+                <td>
+                  <mat-form-field class="width-50" appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender">
+                      <mat-option value="F">Female</mat-option>
+                      <mat-option value="M">Male</mat-option>
+                      <mat-option value="NB">Non-binary</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
             <div>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-flat-button color="primary" matStepperNext>Next</button>
             </div>
           </form>
         </mat-step>
-
+        <!-- .......................................................... -->
         <mat-step [stepControl]="personalInformationForm">
           <form [formGroup]="personalInformationForm">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+            <ng-template matStepLabel>Personal Information</ng-template>            
+            <table class="width-100" cellspacing="15">
+              <tr>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>First name</mat-label>
+                    <input matInput type="text" formControlName="firstName" placeholder="Maria">
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Middle name</mat-label>
+                    <input matInput type="text" formControlName="middleName" placeholder="Camila">
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Last name(s)</mat-label>
+                    <input matInput type="text" formControlName="lastNames" placeholder="Rodriguez Gomez">
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <table class="width-100" cellspacing="15">
+              <tr>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>City of residence</mat-label>
+                    <input matInput type="text" formControlName="residenceCity" placeholder="Bogota">
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput type="text" formControlName="residenceAddress" placeholder="Diagonal 40 # 41-61">
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Cell phone number</mat-label>
+                    <input matInput type="tel" formControlName="cellphoneNumber" placeholder="302-4562-348">
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <table class="width-100" cellspacing="15">
+              <tr>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email" placeholder="Maria">
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+                </td>
+                <td class="width-33">
+                  <mat-form-field class="width-100" appearance="outline">
+                    <mat-label>Repeat password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordRepeat">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
             <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-flat-button color="primary" matStepperPrevious>Back</button>
+              <button mat-flat-button color="primary" style="margin-left: 1rem;" matStepperNext>Next</button>
             </div>
           </form>
         </mat-step>
-
+        <!-- .......................................................... -->
         <mat-step>
-          <ng-template matStepLabel>Done</ng-template>
-          <p>You are now done.</p>
+          <form [formGroup]="financialInformation">
+          <ng-template matStepLabel>Financial Information</ng-template>
+          <table class="width-100" cellspacing="15">
+            <tr>
+              <td class="width-33">
+                <mat-form-field class="width-100" appearance="outline">
+                  <mat-label>Main economic activity</mat-label>
+                  <mat-select formControlName="economicActivity">
+                    <mat-option value="Student">Student</mat-option>
+                    <mat-option value="Salaried">Salaried</mat-option>
+                    <mat-option value="Student">Pension holder</mat-option>
+                    <mat-option value="Student">Freelance</mat-option>
+                    <mat-option value="Student">Capital rentier</mat-option>
+                    <mat-option value="Student">Informal worker</mat-option>
+                    <mat-option value="Student">Unemployed</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td class="width-33">
+                <mat-form-field class="width-100" appearance="outline">
+                  <mat-label>Income range</mat-label>
+                  <mat-select formControlName="incomeRange">
+                    <mat-option value="1">Between $100,000 COP and $499,999 COP</mat-option>
+                    <mat-option value="2">Between $500,000 COP and $999,999 COP</mat-option>
+                    <mat-option value="3">Between $1,000,000 COP and $1,999,999 COP</mat-option>
+                    <mat-option value="3">Between $2,000,000 COP and $2,999,999 COP</mat-option>
+                    <mat-option value="4">More than $3,000,000 COP</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td class="width-33">
+                <mat-form-field class="width-100" appearance="outline">
+                  <mat-label>Range of expenses</mat-label>
+                  <mat-select formControlName="expensesRange">
+                    <mat-option value="1">Less than $99,999 COP</mat-option>
+                    <mat-option value="1">Between $100,000 COP and $499,999 COP</mat-option>
+                    <mat-option value="2">Between $400,000 COP and $599,999 COP</mat-option>
+                    <mat-option value="2">Between $600,000 COP and $799,999 COP</mat-option>
+                    <mat-option value="2">Between $800,000 COP and $999,999 COP</mat-option>
+                    <mat-option value="2">Between $1,000,000 COP and $1,199,999 COP</mat-option>
+                    <mat-option value="2">Between $1,200,000 COP and $1,399,999 COP</mat-option>
+                    <mat-option value="2">Between $1,400,000 COP and $1,599,999 COP</mat-option>
+                    <mat-option value="4">More than $1,600,000 COP</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <h3>Upload support files of your income, such as income tax returns, account balances, payroll statements, among others.</h3>
+          <mat-slide-toggle [(ngModel)]="isChecked" [ngModelOptions]="{standalone: true}">I do not have supporting documentation of my income</mat-slide-toggle>
+          <table class="width-100" cellspacing="15" style="margin: 2rem 0;">
+            <tr>
+              <td class="width-50" class="upload-left-column">
+                <img *ngIf="!isChecked" src="../../../assets/upload-file.png" alt="upload file icon">
+                <img *ngIf="isChecked" src="../../../assets/upload-video.png" alt="upload file icon">
+                <div class="browse_button">
+                  <input type="file" (change)="handleFileInput($event)" class="inputfile inputfile-1" multiple />
+                  <label for="file-1">
+                    <span class="iborrainputfile">Browse</span>
+                  </label>
+                </div>
+              </td>
+              <td class="width-75">
+                <h3 *ngIf="!isChecked">Files uploaded</h3>
+                <h3 *ngIf="isChecked">Video upload</h3>
+                <p *ngIf="fileList.length == 0 && !isChecked">No files have been uploaded</p>
+                <p *ngIf="fileList.length == 0 && isChecked">Upload a video of less than 2 minutes explaining the source of your income.</p>
+                <small *ngIf="fileList.length == 0 && isChecked">* Video validated income is subject to review and may not be accepted. In such a case you will not be able to rent any product.</small>
+                <div *ngFor="let f of fileList" class="width-100" style="display: flex; justify-content:space-between; align-items: baseline;">
+                  <p style="padding: 0;"><mat-icon style="padding: 0;">description</mat-icon> {{f.name}}</p>
+                  <P>{{f.type}}</P>
+                  <p>{{(f.size/1000).toFixed()}} KB</p>
+                </div>
+              </td>
+            </tr>
+          </table>
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-flat-button color="primary" matStepperPrevious>Back</button>
+            <button mat-flat-button color="accent" style="margin-left: 1rem; color: white;" (click)="createAccount()">Create account</button>
           </div>
+        </form>
         </mat-step>
 
       </mat-stepper>
+</div>
+
+<div *ngIf="isLoading" class="isLoading">
+  <mat-spinner style="margin-top: 2rem;"></mat-spinner>
 </div>

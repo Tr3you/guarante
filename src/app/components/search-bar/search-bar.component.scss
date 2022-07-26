@@ -1,5 +1,6 @@
 $primary: #5534A5;
 $gray: #E5E5E5;
+$accent: #28EEEE;
 
 .search-bar{
     display: flex;
@@ -9,6 +10,7 @@ $gray: #E5E5E5;
 
     width: 40rem;
     height: 3.5rem;
+    margin-top: 10px;
     background-color: $gray;
 
     border-radius: 0.5rem;
@@ -20,6 +22,18 @@ $gray: #E5E5E5;
         height: 3.5rem;
         width: 4rem;
         background-color: $primary;
+        border: none;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+    }
+
+    &__button-blue {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3.5rem;
+        width: 4rem;
+        background-color: $accent;
         border: none;
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
